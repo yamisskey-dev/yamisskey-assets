@@ -1,0 +1,172 @@
+<svg viewBox="9 12 182 180" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- より滑らかな球体のグラデーション -->
+    <radialGradient id="refinedSphereGradient" cx="35%" cy="35%" r="65%" fx="25%" fy="25%">
+      <stop offset="0%" style="stop-color:#FFF0F5;stop-opacity:1"/>
+      <stop offset="30%" style="stop-color:#FFDEE9;stop-opacity:1"/>
+      <stop offset="50%" style="stop-color:#FFC8DB;stop-opacity:1"/>
+      <stop offset="70%" style="stop-color:#FFB6D5;stop-opacity:1"/>
+      <stop offset="85%" style="stop-color:#FFA6C8;stop-opacity:0.98"/>
+      <stop offset="100%" style="stop-color:#FF9BC1;stop-opacity:0.95"/>
+    </radialGradient>
+
+    <!-- 改良されたハイライト効果 -->
+    <linearGradient id="refinedHighlight" x1="15%" y1="15%" x2="75%" y2="75%">
+      <stop offset="0%" style="stop-color:#FFFFFF;stop-opacity:0.45"/>
+      <stop offset="45%" style="stop-color:#FFFFFF;stop-opacity:0.2"/>
+      <stop offset="100%" style="stop-color:#FFFFFF;stop-opacity:0"/>
+    </linearGradient>
+
+    <!-- より深みのある雲のグラデーション -->
+    <linearGradient id="refinedCloudGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#A7E0F9;stop-opacity:1"/>
+      <stop offset="35%" style="stop-color:#89CFF0;stop-opacity:1"/>
+      <stop offset="65%" style="stop-color:#67C1E8;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#4BA8D0;stop-opacity:0.98"/>
+    </linearGradient>
+
+    <!-- 改良された光彩効果 -->
+    <filter id="refinedGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3.2"/>
+      <feOffset dx="1.8" dy="1.8" result="offsetblur"/>
+      <feFlood flood-color="#FFB6D5" flood-opacity="0.48"/>
+      <feComposite in2="offsetblur" operator="in"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- より深みのある鍵穴のグラデーション -->
+    <linearGradient id="refinedHoleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#9B4B76;stop-opacity:0.75"/>
+      <stop offset="45%" style="stop-color:#8B3A62;stop-opacity:0.8"/>
+      <stop offset="100%" style="stop-color:#662D4A;stop-opacity:0.85"/>
+    </linearGradient>
+
+    <!-- 改良された縁のぼかし効果 -->
+    <filter id="refinedEdgeBlur">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="0.6"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="1.2"/>
+      </feComponentTransfer>
+    </filter>
+
+    <!-- 吹き出しの光沢効果 -->
+    <linearGradient id="bubbleShine" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFFFFF;stop-opacity:0.15"/>
+      <stop offset="100%" style="stop-color:#FFFFFF;stop-opacity:0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- メインの球体 -->
+  <circle cx="100" cy="100" r="85" 
+          fill="url(#refinedSphereGradient)" 
+          filter="url(#refinedGlow)"/>
+  
+  <!-- 改良されたハイライト -->
+  <circle cx="100" cy="100" r="85" 
+          fill="url(#refinedHighlight)" 
+          style="mix-blend-mode: soft-light"/>
+
+  <!-- 大きい吹き出し -->
+  <path d="M 60,70
+           C 45,70 35,80 35,95 
+           C 35,110 45,120 60,120
+           L 57,135
+           Q 58.5,137 61,136
+           L 70,120
+           L 130,120
+           C 145,120 155,110 155,95
+           C 155,80 145,70 130,70
+           C 130,55 115,45 95,45
+           C 75,45 60,55 60,70" 
+        fill="url(#refinedCloudGradient)" 
+        stroke="#67C1E8" 
+        stroke-width="3.8" 
+        stroke-opacity="0.38"/>
+  
+  <!-- 大きい吹き出しの光沢 -->
+  <path d="M 60,70
+           C 45,70 35,80 35,95 
+           C 35,110 45,120 60,120
+           L 57,135
+           Q 58.5,137 61,136
+           L 70,120
+           L 130,120
+           C 145,120 155,110 155,95
+           C 155,80 145,70 130,70
+           C 130,55 115,45 95,45
+           C 75,45 60,55 60,70" 
+        fill="url(#bubbleShine)" 
+        style="mix-blend-mode: overlay"/>
+
+  <!-- 小さい吹き出し -->
+  <path d="M 85,120
+           C 75,120 70,125 70,135
+           C 70,145 75,150 85,150
+           L 82,165
+           Q 83.5,167 86,166
+           L 95,150
+           L 135,150
+           C 145,150 150,145 150,135
+           C 150,125 145,120 135,120
+           C 135,110 125,105 110,105
+           C 95,105 85,110 85,120" 
+        fill="url(#refinedCloudGradient)" 
+        stroke="#89CFF0" 
+        stroke-width="3.8" 
+        stroke-opacity="0.38"/>
+
+  <!-- 小さい吹き出しの光沢 -->
+  <path d="M 85,120
+           C 75,120 70,125 70,135
+           C 70,145 75,150 85,150
+           L 82,165
+           Q 83.5,167 86,166
+           L 95,150
+           L 135,150
+           C 145,150 150,145 150,135
+           C 150,125 145,120 135,120
+           C 135,110 125,105 110,105
+           C 95,105 85,110 85,120" 
+        fill="url(#bubbleShine)" 
+        style="mix-blend-mode: overlay"/>
+
+  <!-- 鍵穴の縁 -->
+  <path d="M 100,85
+           m -15,0
+           a 15,15 0 1 0 30,0
+           a 15,15 0 1 0 -30,0
+           M 97,100
+           q -0.2,2 -0.5,5
+           l -2.5,30
+           q 0,2 2,2
+           l 8,0
+           q 2,0 2,-2
+           l -2.5,-30
+           q -0.3,-3 -0.5,-5
+           Z" 
+        fill="none"
+        stroke="#FFC8DB"
+        stroke-width="2.2"
+        stroke-opacity="0.42"
+        filter="url(#refinedEdgeBlur)"/>
+
+  <!-- 鍵穴の内部 -->
+  <path d="M 100,85
+           m -15,0
+           a 15,15 0 1 0 30,0
+           a 15,15 0 1 0 -30,0
+           M 97,100
+           q -0.2,2 -0.5,5
+           l -2.5,30
+           q 0,2 2,2
+           l 8,0
+           q 2,0 2,-2
+           l -2.5,-30
+           q -0.3,-3 -0.5,-5
+           Z" 
+        fill="url(#refinedHoleGradient)"
+        style="mix-blend-mode: multiply"/>
+</svg>
