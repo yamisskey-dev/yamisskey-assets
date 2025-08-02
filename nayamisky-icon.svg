@@ -17,12 +17,12 @@
       <stop offset="100%" style="stop-color:#FFFFFF;stop-opacity:0"/>
     </linearGradient>
 
-    <!-- より深みのある雲のグラデーション -->
+    <!-- 涙滴のグラデーション -->
     <linearGradient id="refinedCloudGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#A7E0F9;stop-opacity:1"/>
-      <stop offset="35%" style="stop-color:#89CFF0;stop-opacity:1"/>
-      <stop offset="65%" style="stop-color:#67C1E8;stop-opacity:1"/>
-      <stop offset="100%" style="stop-color:#4BA8D0;stop-opacity:0.98"/>
+      <stop offset="0%" style="stop-color:#BFFFFF;stop-opacity:1"/>
+      <stop offset="35%" style="stop-color:#7FDFFF;stop-opacity:1"/>
+      <stop offset="65%" style="stop-color:#50CFFF;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#00BFFF;stop-opacity:0.95"/>
     </linearGradient>
 
     <!-- 改良された光彩効果 -->
@@ -59,92 +59,61 @@
     </linearGradient>
   </defs>
 
-  <!-- メインの球体 -->
-  <circle cx="100" cy="100" r="85" 
-          fill="url(#refinedSphereGradient)" 
-          filter="url(#refinedGlow)"/>
+  <!-- ハート型のベース -->
+  <path d="M 100,175
+         C 145,145 180,115 180,65
+         C 180,35 160,25 135,25
+         C 115,25 105,40 100,50
+         C 95,40 85,25 65,25
+         C 40,25 20,35 20,65
+         C 20,115 55,145 100,175 Z" 
+      fill="url(#refinedSphereGradient)" 
+      filter="url(#refinedGlow)"/>
   
-  <!-- 改良されたハイライト -->
-  <circle cx="100" cy="100" r="85" 
-          fill="url(#refinedHighlight)" 
-          style="mix-blend-mode: soft-light"/>
+  <!-- 改良されたハイライト（ハート型に合わせて） -->
+  <path d="M 100,175
+         C 145,145 180,115 180,65
+         C 180,35 160,25 135,25
+         C 115,25 105,40 100,50
+         C 95,40 85,25 65,25
+         C 40,25 20,35 20,65
+         C 20,115 55,145 100,175 Z" 
+      fill="url(#refinedHighlight)" 
+      style="mix-blend-mode: soft-light"/>
 
-  <!-- 大きい吹き出し -->
-  <path d="M 60,70
-           C 45,70 35,80 35,95 
-           C 35,110 45,120 60,120
-           L 57,135
-           Q 58.5,137 61,136
-           L 70,120
-           L 130,120
-           C 145,120 155,110 155,95
-           C 155,80 145,70 130,70
-           C 130,55 115,45 95,45
-           C 75,45 60,55 60,70" 
+  <!-- ティアドロップ (涙型) - 小さくしてハートのくぼみの点に合わせる -->
+  <path d="M 100,50
+           C 90,70 75,90 75,105
+           C 75,125 85,135 100,135
+           C 115,135 125,125 125,105
+           C 125,90 110,70 100,50" 
         fill="url(#refinedCloudGradient)" 
         stroke="#67C1E8" 
-        stroke-width="3.8" 
+        stroke-width="3.5" 
         stroke-opacity="0.38"/>
   
-  <!-- 大きい吹き出しの光沢 -->
-  <path d="M 60,70
-           C 45,70 35,80 35,95 
-           C 35,110 45,120 60,120
-           L 57,135
-           Q 58.5,137 61,136
-           L 70,120
-           L 130,120
-           C 145,120 155,110 155,95
-           C 155,80 145,70 130,70
-           C 130,55 115,45 95,45
-           C 75,45 60,55 60,70" 
+  <!-- ティアドロップの光沢 -->
+  <path d="M 100,50
+           C 90,70 75,90 75,105
+           C 75,125 85,135 100,135
+           C 115,135 125,125 125,105
+           C 125,90 110,70 100,50" 
         fill="url(#bubbleShine)" 
         style="mix-blend-mode: overlay"/>
 
-  <!-- 小さい吹き出し -->
-  <path d="M 85,120
-           C 75,120 70,125 70,135
-           C 70,145 75,150 85,150
-           L 82,165
-           Q 83.5,167 86,166
-           L 95,150
-           L 135,150
-           C 145,150 150,145 150,135
-           C 150,125 145,120 135,120
-           C 135,110 125,105 110,105
-           C 95,105 85,110 85,120" 
-        fill="url(#refinedCloudGradient)" 
-        stroke="#89CFF0" 
-        stroke-width="3.8" 
-        stroke-opacity="0.38"/>
 
-  <!-- 小さい吹き出しの光沢 -->
-  <path d="M 85,120
-           C 75,120 70,125 70,135
-           C 70,145 75,150 85,150
-           L 82,165
-           Q 83.5,167 86,166
-           L 95,150
-           L 135,150
-           C 145,150 150,145 150,135
-           C 150,125 145,120 135,120
-           C 135,110 125,105 110,105
-           C 95,105 85,110 85,120" 
-        fill="url(#bubbleShine)" 
-        style="mix-blend-mode: overlay"/>
 
-  <!-- 鍵穴の縁 -->
+  <!-- 鍵穴の縁 - 台形の下辺を涙の丸みに合わせる -->
   <path d="M 100,85
            m -15,0
            a 15,15 0 1 0 30,0
            a 15,15 0 1 0 -30,0
            M 97,100
            q -0.2,2 -0.5,5
-           l -2.5,30
-           q 0,2 2,2
-           l 8,0
-           q 2,0 2,-2
-           l -2.5,-30
+           l -1.5,25
+           C 94,133 97,135 100,135
+           C 103,135 106,133 105,130
+           l -1.5,-25
            q -0.3,-3 -0.5,-5
            Z" 
         fill="none"
@@ -153,18 +122,17 @@
         stroke-opacity="0.42"
         filter="url(#refinedEdgeBlur)"/>
 
-  <!-- 鍵穴の内部 -->
+  <!-- 鍵穴の内部 - 台形の下辺を涙の丸みに合わせる -->
   <path d="M 100,85
            m -15,0
            a 15,15 0 1 0 30,0
            a 15,15 0 1 0 -30,0
            M 97,100
            q -0.2,2 -0.5,5
-           l -2.5,30
-           q 0,2 2,2
-           l 8,0
-           q 2,0 2,-2
-           l -2.5,-30
+           l -1.5,25
+           C 94,133 97,135 100,135
+           C 103,135 106,133 105,130
+           l -1.5,-25
            q -0.3,-3 -0.5,-5
            Z" 
         fill="url(#refinedHoleGradient)"
