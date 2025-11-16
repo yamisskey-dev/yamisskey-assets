@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320">
+<defs>
+  <!-- 外側の円のグラデーション（DAO境界） -->
+  <linearGradient id="daoCircleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" style="stop-color:#6A5DD8;stop-opacity:0.3" />
+    <stop offset="50%" style="stop-color:#A0458F;stop-opacity:0.3" />
+    <stop offset="100%" style="stop-color:#2B8AC9;stop-opacity:0.3" />
+  </linearGradient>
+
+  <!-- 中心の三日月のグラデーション -->
+  <radialGradient id="moonGradient" cx="40%" cy="40%" r="80%">
+    <stop offset="0%" style="stop-color:#A32E6B;stop-opacity:1" />
+    <stop offset="30%" style="stop-color:#771E7F;stop-opacity:1" />
+    <stop offset="60%" style="stop-color:#56128E;stop-opacity:1" />
+    <stop offset="100%" style="stop-color:#371566;stop-opacity:1" />
+  </radialGradient>
+
+  <!-- ノードのグラデーション -->
+  <radialGradient id="nodeGradient" cx="40%" cy="40%" r="70%">
+    <stop offset="0%" style="stop-color:#8B6BD8;stop-opacity:1" />
+    <stop offset="50%" style="stop-color:#7556C8;stop-opacity:1" />
+    <stop offset="100%" style="stop-color:#5A3DA8;stop-opacity:1" />
+  </radialGradient>
+
+  <!-- ネットワーク線のグラデーション -->
+  <linearGradient id="networkGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" style="stop-color:#6A5DD8;stop-opacity:0.5" />
+    <stop offset="100%" style="stop-color:#A0458F;stop-opacity:0.5" />
+  </linearGradient>
+
+  <!-- グロー効果 -->
+  <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+    <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="blur"/>
+    <feColorMatrix in="blur" type="matrix" values="
+      1 0 0 0 0
+      0 1 0 0 0
+      0 0 1 0 0
+      0 0 0 2.5 0" result="glow"/>
+    <feBlend in="SourceGraphic" in2="glow" mode="screen"/>
+  </filter>
+
+  <!-- ノードのグロー -->
+  <filter id="nodeGlow" x="-100%" y="-100%" width="300%" height="300%">
+    <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur"/>
+    <feColorMatrix in="blur" type="matrix" values="
+      1 0 0 0 0
+      0 1 0 0 0
+      0 0 1 0 0
+      0 0 0 2 0" result="glow"/>
+    <feBlend in="SourceGraphic" in2="glow" mode="screen"/>
+  </filter>
+</defs>
+
+<!-- 背景の薄いグラデーション -->
+<circle cx="160" cy="160" r="155" fill="url(#daoCircleGradient)" opacity="0.15"/>
+
+<!-- DAO外周円 -->
+<circle cx="160" cy="160" r="145"
+  fill="none"
+  stroke="url(#daoCircleGradient)"
+  stroke-width="2"
+  opacity="0.6"/>
+
+<!-- ネットワーク線（六角形の辺 + 中心への接続） -->
+<!-- 六角形の辺 -->
+<line x1="160" y1="45" x2="259.6" y2="102.5" stroke="url(#networkGradient)" stroke-width="1.5" opacity="0.4"/>
+<line x1="259.6" y1="102.5" x2="259.6" y2="217.5" stroke="url(#networkGradient)" stroke-width="1.5" opacity="0.4"/>
+<line x1="259.6" y1="217.5" x2="160" y2="275" stroke="url(#networkGradient)" stroke-width="1.5" opacity="0.4"/>
+<line x1="160" y1="275" x2="60.4" y2="217.5" stroke="url(#networkGradient)" stroke-width="1.5" opacity="0.4"/>
+<line x1="60.4" y1="217.5" x2="60.4" y2="102.5" stroke="url(#networkGradient)" stroke-width="1.5" opacity="0.4"/>
+<line x1="60.4" y1="102.5" x2="160" y2="45" stroke="url(#networkGradient)" stroke-width="1.5" opacity="0.4"/>
+
+<!-- 中心への接続線 -->
+<line x1="160" y1="160" x2="160" y2="45" stroke="url(#networkGradient)" stroke-width="1" opacity="0.3"/>
+<line x1="160" y1="160" x2="259.6" y2="102.5" stroke="url(#networkGradient)" stroke-width="1" opacity="0.3"/>
+<line x1="160" y1="160" x2="259.6" y2="217.5" stroke="url(#networkGradient)" stroke-width="1" opacity="0.3"/>
+<line x1="160" y1="160" x2="160" y2="275" stroke="url(#networkGradient)" stroke-width="1" opacity="0.3"/>
+<line x1="160" y1="160" x2="60.4" y2="217.5" stroke="url(#networkGradient)" stroke-width="1" opacity="0.3"/>
+<line x1="160" y1="160" x2="60.4" y2="102.5" stroke="url(#networkGradient)" stroke-width="1" opacity="0.3"/>
+
+<!-- 6つのノード（コミュニティメンバー） -->
+<!-- ノード1（上） -->
+<circle cx="160" cy="45" r="16" fill="url(#nodeGradient)" filter="url(#nodeGlow)" opacity="0.95"/>
+<!-- ノード2（右上） -->
+<circle cx="259.6" cy="102.5" r="16" fill="url(#nodeGradient)" filter="url(#nodeGlow)" opacity="0.95"/>
+<!-- ノード3（右下） -->
+<circle cx="259.6" cy="217.5" r="16" fill="url(#nodeGradient)" filter="url(#nodeGlow)" opacity="0.95"/>
+<!-- ノード4（下） -->
+<circle cx="160" cy="275" r="16" fill="url(#nodeGradient)" filter="url(#nodeGlow)" opacity="0.95"/>
+<!-- ノード5（左下） -->
+<circle cx="60.4" cy="217.5" r="16" fill="url(#nodeGradient)" filter="url(#nodeGlow)" opacity="0.95"/>
+<!-- ノード6（左上） -->
+<circle cx="60.4" cy="102.5" r="16" fill="url(#nodeGradient)" filter="url(#nodeGlow)" opacity="0.95"/>
+
+<!-- 中心の三日月（やみすきーのシンボル） -->
+<g transform="translate(160, 160)">
+  <!-- 月のベース円 -->
+  <circle cx="0" cy="0" r="35" fill="url(#moonGradient)" filter="url(#glow)"/>
+  <!-- 三日月の切り抜き -->
+  <circle cx="12" cy="-8" r="32" fill="#0A0414" opacity="0.85"/>
+
+  <!-- 月の模様（クレーター風） -->
+  <circle cx="-8" cy="-5" r="5" fill="#371566" opacity="0.4"/>
+  <circle cx="5" cy="8" r="3.5" fill="#371566" opacity="0.3"/>
+  <circle cx="-12" cy="12" r="4" fill="#371566" opacity="0.35"/>
+</g>
+
+<!-- 中心ノード（統括を象徴） -->
+<circle cx="160" cy="160" r="48"
+  fill="none"
+  stroke="url(#moonGradient)"
+  stroke-width="1.5"
+  opacity="0.4"/>
+
+</svg>
