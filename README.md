@@ -68,3 +68,9 @@ Photoshopで作成したパスに合わせる為、細かいパラメータは�
       style="fill:url(#myGradient);"/>
 ```
 `transform=`でサイズ調整。
+
+## License
+
+This work is licensed under [CC BY-NC-ND 4.0](./LICENSE).
+
+© yamisskey-dev
